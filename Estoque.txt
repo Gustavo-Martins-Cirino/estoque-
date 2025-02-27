@@ -1,1 +1,116 @@
-olá
+import java.util.Scanner;
+import java.util.ArrayList;
+
+class Produto {
+    private int id;
+    private String nome;
+    private int quantidade;
+    private double preco;
+
+    public Produto(int id, String nome, int quantidade, double preco) {
+        this.id = id;
+        this.nome = nome;
+        this.quantidade = quantidade;
+        this.preco = preco;
+    }
+
+    public int getID() {
+        return id;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public int getQuantidade() {
+        return quantidade;
+    }
+    public double getPreco() {
+        return preco;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public void setID(int id){
+        this.id = id;
+    }
+    public void setQuantidade(int quantidade){
+        this.quantidade = quantidade;
+    }
+    public String toString() {
+        return "ID: " + id + "Nome: " + nome + "Quantidade: " + quantidade + "Preço: R$ " + preco;
+    }
+}
+
+public class Estoque {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Produto> produtos = new ArrayList<> ();
+
+        while (true) {
+            System.out.println("\n GERENCIADOR DE ESTOQUE: ");
+            System.out.println("1- Cadastrar produto ");
+            System.out.println("2- Atualizar o estoque ");
+            System.out.println("3- Exibir produtos ");
+            System.out.println("4- Buscar um produto ");
+            System.out.println("5- Gerar relatório de estoque ");
+            System.out.println("6- Sair");
+
+            int opcao = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcao) {
+                case 1:
+                    System.out.println("Digite o ID do produto: ");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Digite o nome do produto: ");
+                    String nome = scanner.nextLine();
+                    System.out.println("Digite a quantidade de produtos: ");
+                    int quantidade = scanner.nextInt();
+                    System.out.println("Digite o preço do produto: ");
+                    double preco = scanner.nextDouble();
+                    produtos.add(new Produto(id, nome, quantidade, preco));
+                    System.out.println("Produto cadastrado com sucesso! ");
+                    break;
+                case 2:
+                    System.out.println("Digite o ID do produto que vai ser atualizado: ");
+                    int idAtualizar = scanner.nextInt();
+                    scanner.nextLine();
+                    Produto produto = null;
+                    for (Produto p : produtos) {
+                        if (p.getID() == idAtualizar) {
+                            produto = p;
+                            break;
+                        }
+                    }
+                    if (produto != null) {
+                        System.out.println("O que deseja alterar ?");
+                        System.out.println("1- Nome do produto ");
+                        System.out.println("2- Quantidade do produto ");
+                        System.out.println("3- Preço do produto");
+                        System.out.println("4- ID do produto ");
+                        int opcaoAlterar = scanner.nextInt();
+                        scanner.nextLine();
+                        switch (opcaoAlterar) {
+                            case 1:
+                                System.out.println("Digite o novo nome do produto: ");
+                                String novoNome = scanner.nextLine();
+                                produto.setNome(novoNome);
+                                System.out.println("Nome atualizado com sucesso! ");
+                                break;
+                            case 2:
+                                System.out.println("Digite a nova quantidade do produto: ");
+                                int novaQuantidade = 
+                        }
+
+
+
+
+
+                    }
+            }
+
+        }
+    }
+}
+
+
